@@ -66,7 +66,7 @@ public struct TerminalOptions {
                                                        termName: "xterm-256color",
                                                        cursorStyle: .blinkBlock,
                                                        screenReaderMode: false,
-                                                       scrollback: 500,
+                                                       scrollback: 5000,
                                                        tabStopWidth: 8,
                                                        enableSixelReported: true)
 
