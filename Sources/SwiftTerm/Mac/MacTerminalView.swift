@@ -1087,7 +1087,10 @@ open class TerminalView: NSView, NSTextInputClient, NSUserInterfaceValidations, 
         }
         
         if terminal.mouseMode.sendMotionEvent() {
-            let flags = encodeMouseEvent(with: event)
+            var flags = encodeMouseEvent(with: event)
+            if flags & 0b1100_0011 == 0 {
+                flags = flags + 64
+            }
             terminal.sendMotion(buttonFlags: flags, x: hit.grid.col, y: hit.grid.row, pixelX: hit.pixels.col, pixelY: hit.pixels.row)
         }
     }
