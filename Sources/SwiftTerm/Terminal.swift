@@ -2300,6 +2300,11 @@ open class Terminal {
 
     func cmdRestoreCursor (_ pars: [Int], _ collect: cstring)
     {
+        // avoid kitty keyboard protocol
+        if pars.count > 0 {
+            return
+        }
+
         buffer.x = buffer.savedX
         buffer.y = buffer.savedY
         curAttr = buffer.savedAttr
