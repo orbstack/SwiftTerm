@@ -315,7 +315,8 @@ open class TerminalView: NSView, NSTextInputClient, NSUserInterfaceValidations, 
         scroller.scrollerStyle = style
         scroller.knobProportion = 0.1
         scroller.isEnabled = false
-        addSubview (scroller)
+        // HACK: don't add scroller for now; is buggy
+        // addSubview (scroller)
         scroller.action = #selector(scrollerActivated)
         scroller.target = self
     }
